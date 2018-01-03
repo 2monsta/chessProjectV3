@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Square from './Square';
 import Knight from './Knight';
-import {moveKnight, canMoveKnight} from '../Game';
+import Rook from './Rook';
+import {moveKnight, canMoveKnight, moveRook, canMoveRook} from '../Game';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import BoardSquare from './BoardSquare';
 class Board extends Component {
 	
-	handleSquareClick(toX, toY) {
-		if (canMoveKnight(toX, toY)) {
-			moveKnight(toX, toY);
-		}
-	}
+	// handleSquareClick(toX, toY) {
+	// 	if (canMoveKnight(toX, toY)) {
+	// 		moveKnight(toX, toY);
+	// 	}
+	// }
+
   renderSquare(i) {
 		const x = i % 8;
 		const y = Math.floor(i / 8);
 		return (
-			<div key={i}
-					 style={{ width: '12.5%', height: '12.5%' }}>
-				<BoardSquare x={x}
-										 y={y}>
+			<div key={i} style={{ width: '12.5%', height: '12.5%' }}>
+				<BoardSquare x={x} y={y}>
 					{this.renderPiece(x, y)}
 				</BoardSquare>
 			</div>
@@ -28,10 +28,15 @@ class Board extends Component {
 	}
 	renderPiece(x, y) {
 		const [knightX, knightY] = this.props.knightPosition;
+		const [rookX, rookY] = this.props.rookPosition;
 		if (x === knightX && y === knightY) {
-			return <Knight />;
+			return <Knight name="knight"/>;
+		}else if(x === rookX && y === rookY){
+			return <Rook name="rook"/>
 		}
 	}
+
+
   render() {
     const squares = [];
     for (let i = 0; i < 64; i++) {

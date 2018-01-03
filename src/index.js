@@ -9,9 +9,9 @@ import { observe } from './Game';
 
 
 const rootEl = document.getElementById('root');
-observe(knightPosition =>
+observe(function (knightPosition, rookPosition ){
   ReactDOM.render(
-    <Board knightPosition={knightPosition} />,
+    <Board knightPosition={knightPosition} rookPosition={rookPosition} />,
     rootEl
-  )
+  )}
 );
