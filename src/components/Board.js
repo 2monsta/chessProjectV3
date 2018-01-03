@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Square from './Square';
 import Knight from './Knight';
 import Rook from './Rook';
+import RookOne from './RookOne';
 import Bishop from './Bishop';
 import Queen from './Queen';
 import {moveKnight, canMoveKnight, moveRook, canMoveRook, canMoveQueen, moveQueen} from '../Game';
@@ -33,6 +34,7 @@ class Board extends Component {
 		const [rookX, rookY] = this.props.rookPosition;
 		const [bishopX, bishopY] = this.props.bishopPosition;
 		const [queenX, queenY] = this.props.queenPosition;
+		const [rookX1, rookY1] = this.props.rookPosition1;
 		if (x === knightX && y === knightY) {
 			return <Knight name="knight"/>;
 		}else if(x === rookX && y === rookY){
@@ -42,6 +44,8 @@ class Board extends Component {
 		}
 		else if (x === queenX && y === queenY){
 			return <Queen name='queen'/>
+		}else if(x === rookX1 && y === rookY1){
+			return <RookOne name="rook1"/>
 		}
 	}
 
