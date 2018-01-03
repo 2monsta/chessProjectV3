@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Square from './Square';
 import { canMoveKnight, moveKnight, canMoveRook, moveRook, canMoveBishop, 
 	moveBishop, canMoveQueen, moveQueen, 
-	moveRook1,canMoveRook1 } from '../Game';
+	moveRook1,canMoveRook1, canMoveKing, moveKing } from '../Game';
 import { ItemTypes } from './Constants';
 import { DropTarget } from 'react-dnd';
 
@@ -22,6 +22,8 @@ const squareTarget = {
 			return canMoveQueen(props.x, props.y);
 		}else if (monitor.getItemType()==="rookone"){
 			return canMoveRook1(props.x, props.y);
+		}else if (monitor.getItemType()==="king"){
+			return canMoveKing(props.x, props.y);
 		}
   },
   drop(props, monitor) {
@@ -36,6 +38,8 @@ const squareTarget = {
 			return moveQueen(props.x, props.y);
 		}else if (monitor.getItemType()==="rookone"){
 			return moveRook1(props.x, props.y);
+		}else if (monitor.getItemType()==="king"){
+			return moveKing(props.x, props.y);
 		}
 	},
 };
@@ -93,4 +97,4 @@ BoardSquare.propTypes = {
   canDrop: PropTypes.bool.isRequired
 };
 
-export default DropTarget([ItemTypes.KNIGHT, ItemTypes.ROOK, ItemTypes.BISHOP, ItemTypes.QUEEN, ItemTypes.ROOKONE], squareTarget, collect)(BoardSquare);
+export default DropTarget([ItemTypes.KNIGHT, ItemTypes.ROOK, ItemTypes.BISHOP, ItemTypes.QUEEN, ItemTypes.ROOKONE, ItemTypes.KING], squareTarget, collect)(BoardSquare);

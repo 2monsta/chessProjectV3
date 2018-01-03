@@ -4,9 +4,10 @@ let knightPosition = [1, 7];
 let bishopPosition = [2, 7];
 let queenPosition = [3, 7];
 let rookPosition1 = [7,7];
+let kingPosition = [4,7];
 
 function emitChange() {
-  observer(knightPosition, rookPosition, bishopPosition, queenPosition, rookPosition1);
+  observer(knightPosition, rookPosition, bishopPosition, queenPosition, rookPosition1, kingPosition);
 }
 export function observe(o) {
   if (observer) {
@@ -76,5 +77,18 @@ export function canMoveQueen(toX, toY){
 }
 export function moveQueen(toX, toY){
 	queenPosition = [toX, toY];
+	emitChange();
+}
+
+//KING MOVEMENT
+export function canMoveKing(toX, toY){
+	const [x, y] = kingPosition;
+  const dx = toX - x;
+	const dy = toY - y;
+	// return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
+	return (dx, dy);
+}
+export function moveKing(toX, toY){
+	kingPosition = [toX, toY];
 	emitChange();
 }
