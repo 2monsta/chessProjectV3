@@ -9,14 +9,21 @@ import { DropTarget } from 'react-dnd';
 
 
 const squareTarget = {
-	canDrop(props) {
-		// console.log(props.children.props.name);
-    return canMoveKnight(props.x, props.y);
+	canDrop(props, monitor) {
+		console.log(monitor.getItemType());
+		if(monitor.getItemType() === "knight"){
+			return canMoveKnight(props.x, props.y);
+		}else if (monitor.getItemType()==="rook"){
+			return canMoveRook(props.x, props.y);
+		}
   },
-  drop(props) {
-		// console.log(props);
-    moveKnight(props.x, props.y);
-	},	
+  drop(props, monitor) {
+		if(monitor.getItemType() === "knight"){
+			return moveKnight(props.x, props.y);
+		}else if (monitor.getItemType()==="rook"){
+			return moveRook(props.x, props.y);
+		}
+	},
 };
 
 function collect(connect, monitor) {
