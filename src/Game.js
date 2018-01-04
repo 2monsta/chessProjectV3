@@ -70,7 +70,6 @@ export function moveRook(toX, toY){
 	rookPosition = [toX, toY];
 	emitChange();
 }
-
 //ROOK1 MOVEMENT
 export function canMoveRook1(toX, toY){
 	const [x, y] = rookPosition1;
@@ -101,8 +100,21 @@ export function canMoveBishop(toX, toY){
 	const [x, y] = bishopPosition;
   const dx = toX - x;
 	const dy = toY - y;
-	// return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
-	return (dx, dy);
+	
+	return (Math.abs(dx) === 1 && Math.abs(dy) === 1) || 
+	Math.abs(dx) === 1 && Math.abs(dy) === 1 || 
+	Math.abs(dx) === 2 && Math.abs(dy) === 2 || 
+	Math.abs(dx) === 2 && Math.abs(dy) === 2 ||
+	Math.abs(dx) === 3 && Math.abs(dy) === 3 || 
+	Math.abs(dx) === 3 && Math.abs(dy) === 3 ||
+	Math.abs(dx) === 4 && Math.abs(dy) === 4 || 
+	Math.abs(dx) === 4 && Math.abs(dy) === 4 ||
+	Math.abs(dx) === 5 && Math.abs(dy) === 5 || 
+	Math.abs(dx) === 5 && Math.abs(dy) === 5 ||
+	Math.abs(dx) === 6 && Math.abs(dy) === 6 || 
+	Math.abs(dx) === 6 && Math.abs(dy) === 6 ||
+	Math.abs(dx) === 7 && Math.abs(dy) === 7 || 
+	Math.abs(dx) === 7 && Math.abs(dy) === 7;
 }
 export function moveBishop(toX, toY){
 	bishopPosition = [toX, toY];
@@ -114,8 +126,20 @@ export function canMoveBishopOne(toX, toY){
 	const [x, y] = bishopOnePosition;
   const dx = toX - x;
 	const dy = toY - y;
-	// return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
-	return (dx, dy);
+	return (Math.abs(dx) === 1 && Math.abs(dy) === 1) || 
+	Math.abs(dx) === 1 && Math.abs(dy) === 1 || 
+	Math.abs(dx) === 2 && Math.abs(dy) === 2 || 
+	Math.abs(dx) === 2 && Math.abs(dy) === 2 ||
+	Math.abs(dx) === 3 && Math.abs(dy) === 3 || 
+	Math.abs(dx) === 3 && Math.abs(dy) === 3 ||
+	Math.abs(dx) === 4 && Math.abs(dy) === 4 || 
+	Math.abs(dx) === 4 && Math.abs(dy) === 4 ||
+	Math.abs(dx) === 5 && Math.abs(dy) === 5 || 
+	Math.abs(dx) === 5 && Math.abs(dy) === 5 ||
+	Math.abs(dx) === 6 && Math.abs(dy) === 6 || 
+	Math.abs(dx) === 6 && Math.abs(dy) === 6 ||
+	Math.abs(dx) === 7 && Math.abs(dy) === 7 || 
+	Math.abs(dx) === 7 && Math.abs(dy) === 7;
 }
 export function moveBishopOne(toX, toY){
 	bishopOnePosition = [toX, toY];
