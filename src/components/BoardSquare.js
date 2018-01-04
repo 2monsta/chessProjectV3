@@ -8,6 +8,7 @@ import { canMoveKnight, moveKnight, canMoveRook, moveRook, canMoveBishop,
 import { ItemTypes } from './Constants';
 import { DropTarget } from 'react-dnd';
 
+// renders the moves
 
 const squareTarget = {
 	canDrop(props, monitor) {
