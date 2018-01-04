@@ -7,10 +7,11 @@ let rookPosition1 = [7,7];
 let kingPosition = [4,7];
 let bishopOnePosition = [5,7];
 let knightOnePosition = [6,7];
+let pawnPosition = [0,6];
 
 
 function emitChange() {
-  observer(knightPosition, rookPosition, bishopPosition, queenPosition, rookPosition1, kingPosition, bishopOnePosition, knightOnePosition);
+  observer(knightPosition, rookPosition, bishopPosition, queenPosition, rookPosition1, kingPosition, bishopOnePosition, knightOnePosition, pawnPosition);
 }
 export function observe(o) {
   if (observer) {
@@ -31,7 +32,6 @@ export function canMoveKnight(toX, toY) {
   const dy = toY - y;
   return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
 }
-
 //KNIGHTONE MOVEMENT
 export function moveKnightOne(toX, toY) {
   knightOnePosition = [toX, toY];
@@ -43,8 +43,6 @@ export function canMoveKnightOne(toX, toY) {
   const dy = toY - y;
   return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
 }
-
-
 //ROOK MOVEMENT
 export function canMoveRook(toX, toY){
 	const [x, y] = rookPosition;
@@ -94,7 +92,6 @@ export function moveRook1(toX, toY){
 	rookPosition1 = [toX, toY];
 	emitChange();
 }
-
 //BISHOP MOVEMENT
 export function canMoveBishop(toX, toY){
 	const [x, y] = bishopPosition;
@@ -120,7 +117,6 @@ export function moveBishop(toX, toY){
 	bishopPosition = [toX, toY];
 	emitChange();
 }
-
 //BISHOP MOVEMENT
 export function canMoveBishopOne(toX, toY){
 	const [x, y] = bishopOnePosition;
@@ -145,7 +141,6 @@ export function moveBishopOne(toX, toY){
 	bishopOnePosition = [toX, toY];
 	emitChange();
 }
-
 //QUEEN MOVEMENT
 export function canMoveQueen(toX, toY){
 	const [x, y] = queenPosition;
@@ -184,7 +179,6 @@ export function moveQueen(toX, toY){
 	queenPosition = [toX, toY];
 	emitChange();
 }
-
 //KING MOVEMENT
 export function canMoveKing(toX, toY){
 	const [x, y] = kingPosition;
@@ -196,5 +190,18 @@ export function canMoveKing(toX, toY){
 }
 export function moveKing(toX, toY){
 	kingPosition = [toX, toY];
+	emitChange();
+}
+
+
+//PAWN MOVEMENT
+export function canMovePawn(toX, toY){
+	const [x, y] = pawnPosition;
+  const dx = toX - x;
+	const dy = toY - y;
+	return (dx === 0 && dy === -1) || (dx === 0 && dy === -2)
+}
+export function movePawn(toX, toY){
+	pawnPosition = [toX, toY];
 	emitChange();
 }

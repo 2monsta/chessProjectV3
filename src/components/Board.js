@@ -8,7 +8,7 @@ import Bishop from './Bishop';
 import BishopOne from './BishopOne';
 import Queen from './Queen';
 import King from './King';
-// import {moveKnight, canMoveKnight, moveRook, canMoveRook, canMoveQueen, moveQueen,} from '../Game';
+import Pawn from './Pawn';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import BoardSquare from './BoardSquare';
@@ -41,6 +41,7 @@ class Board extends Component {
 		const [kingX, kingY] = this.props.kingPosition;
 		const [bishopX1, bishopY1] = this.props.bishopOnePosition;
 		const [knightX1, knightY1] = this.props.knightOnePosition;
+		const [pawnX, pawnY] = this.props.pawnPosition;
 
 		if (x === knightX && y === knightY) {
 			return <Knight name="knight"/>;
@@ -61,6 +62,8 @@ class Board extends Component {
 			return <RookOne name="rook1"/>
 		}else if(x === kingX && y === kingY){
 			return <King name="king"/>
+		}else if(x ===pawnX && y ===pawnY){
+			return <Pawn/>
 		}
 
 	}

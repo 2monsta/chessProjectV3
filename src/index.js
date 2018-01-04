@@ -8,7 +8,7 @@ import { observe } from './Game';
 
 
 const rootEl = document.getElementById('root');
-observe(function (knightPosition, rookPosition,bishopPosition, queenPosition, rookPosition1, kingPosition, bishopOnePosition, knightOnePosition){
+observe(function (knightPosition, rookPosition,bishopPosition, queenPosition, rookPosition1, kingPosition, bishopOnePosition, knightOnePosition, pawnPosition){
   ReactDOM.render(
     <Board 
 		knightPosition={knightPosition} 
@@ -18,7 +18,8 @@ observe(function (knightPosition, rookPosition,bishopPosition, queenPosition, ro
 		rookPosition1 = {rookPosition1} 
 		kingPosition = {kingPosition} 
 		bishopOnePosition={bishopOnePosition}
-		knightOnePosition={knightOnePosition}/>,
+		knightOnePosition={knightOnePosition}
+		pawnPosition={pawnPosition}/>,
     rootEl
   )}
 );
