@@ -190,8 +190,9 @@ export function canMoveKing(toX, toY){
 	const [x, y] = kingPosition;
   const dx = toX - x;
 	const dy = toY - y;
-	// return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
-	return (dx, dy);
+	return (Math.abs(dx) === 1 && Math.abs(dy) === 1) ||
+		(Math.abs(dx) === 0 && Math.abs(dy) === 1) ||
+		(Math.abs(dx) === 1 && Math.abs(dy) === 0)
 }
 export function moveKing(toX, toY){
 	kingPosition = [toX, toY];
