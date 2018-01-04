@@ -151,8 +151,34 @@ export function canMoveQueen(toX, toY){
 	const [x, y] = queenPosition;
   const dx = toX - x;
 	const dy = toY - y;
-	// return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
-	return (dx, dy);
+	return (Math.abs(dx) === 1 && Math.abs(dy) === 1) || 
+	Math.abs(dx) === 1 && Math.abs(dy) === 1 || 
+	Math.abs(dx) === 2 && Math.abs(dy) === 2 || 
+	Math.abs(dx) === 2 && Math.abs(dy) === 2 ||
+	Math.abs(dx) === 3 && Math.abs(dy) === 3 || 
+	Math.abs(dx) === 3 && Math.abs(dy) === 3 ||
+	Math.abs(dx) === 4 && Math.abs(dy) === 4 || 
+	Math.abs(dx) === 4 && Math.abs(dy) === 4 ||
+	Math.abs(dx) === 5 && Math.abs(dy) === 5 || 
+	Math.abs(dx) === 5 && Math.abs(dy) === 5 ||
+	Math.abs(dx) === 6 && Math.abs(dy) === 6 || 
+	Math.abs(dx) === 6 && Math.abs(dy) === 6 ||
+	Math.abs(dx) === 7 && Math.abs(dy) === 7 || 
+	Math.abs(dx) === 7 && Math.abs(dy) === 7 ||
+	(Math.abs(dx) === 0 && Math.abs(dy) === 1) ||
+	(Math.abs(dx) === 0 && Math.abs(dy) === 2) ||
+	 (Math.abs(dx) === 0 && Math.abs(dy) === 3) || 
+	 (Math.abs(dx) === 0 && Math.abs(dy) === 4) ||
+		(Math.abs(dx) === 0 && Math.abs(dy) === 5) ||
+		(Math.abs(dx) === 0 && Math.abs(dy) === 6) ||
+		(Math.abs(dx) === 0 && Math.abs(dy) === 7) ||
+		(Math.abs(dx) === 1 && Math.abs(dy) === 0) ||
+		(Math.abs(dx) === 2 && Math.abs(dy) === 0) ||
+		(Math.abs(dx) === 3 && Math.abs(dy) === 0) || 
+	 	(Math.abs(dx) === 4 && Math.abs(dy) === 0) ||
+		(Math.abs(dx) === 5 && Math.abs(dy) === 0) ||
+		(Math.abs(dx) === 6 && Math.abs(dy) === 0) ||
+		(Math.abs(dx) === 7 && Math.abs(dy) === 0);
 }
 export function moveQueen(toX, toY){
 	queenPosition = [toX, toY];
