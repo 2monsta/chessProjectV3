@@ -5,12 +5,14 @@ import Knight from './Knight';
 import Rook from './Rook';
 import RookOne from './RookOne';
 import Bishop from './Bishop';
+import BishopOne from './BishopOne';
 import Queen from './Queen';
 import King from './King';
 // import {moveKnight, canMoveKnight, moveRook, canMoveRook, canMoveQueen, moveQueen,} from '../Game';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import BoardSquare from './BoardSquare';
+import KnightOne from './KnightOne';
 class Board extends Component {
 	
 	// handleSquareClick(toX, toY) {
@@ -37,12 +39,21 @@ class Board extends Component {
 		const [queenX, queenY] = this.props.queenPosition;
 		const [rookX1, rookY1] = this.props.rookPosition1;
 		const [kingX, kingY] = this.props.kingPosition;
+		const [bishopX1, bishopY1] = this.props.bishopOnePosition;
+		const [knightX1, knightY1] = this.props.knightOnePosition;
+
 		if (x === knightX && y === knightY) {
 			return <Knight name="knight"/>;
-		}else if(x === rookX && y === rookY){
+		}else if(x ===knightX1 && y ===knightY1){
+			return <KnightOne />
+		}
+		else if(x === rookX && y === rookY){
 			return <Rook name="rook"/>
 		}else if (x === bishopX && y === bishopY){
 			return <Bishop name='bishop'/>
+		}
+		else if (x === bishopX1 && y === bishopY1){
+			return <BishopOne name='bishop'/>
 		}
 		else if (x === queenX && y === queenY){
 			return <Queen name='queen'/>

@@ -5,9 +5,12 @@ let bishopPosition = [2, 7];
 let queenPosition = [3, 7];
 let rookPosition1 = [7,7];
 let kingPosition = [4,7];
+let bishopOnePosition = [5,7];
+let knightOnePosition = [6,7];
+
 
 function emitChange() {
-  observer(knightPosition, rookPosition, bishopPosition, queenPosition, rookPosition1, kingPosition);
+  observer(knightPosition, rookPosition, bishopPosition, queenPosition, rookPosition1, kingPosition, bishopOnePosition, knightOnePosition);
 }
 export function observe(o) {
   if (observer) {
@@ -28,6 +31,20 @@ export function canMoveKnight(toX, toY) {
   const dy = toY - y;
   return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
 }
+
+//KNIGHTONE MOVEMENT
+export function moveKnightOne(toX, toY) {
+  knightOnePosition = [toX, toY];
+  emitChange();
+}
+export function canMoveKnightOne(toX, toY) {
+  const [x, y] = knightOnePosition;
+  const dx = toX - x;
+  const dy = toY - y;
+  return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
+}
+
+
 //ROOK MOVEMENT
 export function canMoveRook(toX, toY){
 	const [x, y] = rookPosition;
@@ -64,6 +81,19 @@ export function canMoveBishop(toX, toY){
 }
 export function moveBishop(toX, toY){
 	bishopPosition = [toX, toY];
+	emitChange();
+}
+
+//BISHOP MOVEMENT
+export function canMoveBishopOne(toX, toY){
+	const [x, y] = bishopOnePosition;
+  const dx = toX - x;
+	const dy = toY - y;
+	// return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
+	return (dx, dy);
+}
+export function moveBishopOne(toX, toY){
+	bishopOnePosition = [toX, toY];
 	emitChange();
 }
 
