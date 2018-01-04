@@ -196,10 +196,17 @@ export function moveKing(toX, toY){
 
 //PAWN MOVEMENT
 export function canMovePawn(toX, toY){
+
 	const [x, y] = pawnPosition;
-  const dx = toX - x;
-	const dy = toY - y;
-	return (dx === 0 && dy === -1) || (dx === 0 && dy === -2)
+	if(x === 0 && y ===6){
+		const dx = toX - x;
+		const dy = toY - y;
+		return (dx === 0 && dy === -1) || (dx === 0 && dy === -2)
+	}else{
+		const dx = toX - x;
+		const dy = toY - y;
+		return (dx === 0 && dy === -1)
+	}
 }
 export function movePawn(toX, toY){
 	pawnPosition = [toX, toY];
