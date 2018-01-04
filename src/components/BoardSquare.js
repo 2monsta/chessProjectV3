@@ -103,12 +103,4 @@ class BoardSquare extends Component {
   }
 }
 
-BoardSquare.propTypes = {
-  x: PropTypes.number.isRequired,
-  y: PropTypes.number.isRequired,
-  connectDropTarget: PropTypes.func.isRequired,
-  isOver: PropTypes.bool.isRequired,
-  canDrop: PropTypes.bool.isRequired
-};
-
 export default DropTarget([ItemTypes.KNIGHT, ItemTypes.ROOK, ItemTypes.BISHOP, ItemTypes.QUEEN, ItemTypes.ROOKONE, ItemTypes.KING, ItemTypes.BISHOPONE, ItemTypes.KNIGHTONE], squareTarget, collect)(BoardSquare);
